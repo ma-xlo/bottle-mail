@@ -8,27 +8,25 @@
     <title>Compose</title>
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-        <img src="../img/feather-ink-paper.jpg" alt="message-in-a-bottle.jpg" style="width:230px">
-        <br>
-        <form action="/send" method="post">
-
-            <div class="input-box">
-                <input type="email" name="emailReceiver" placeholder="Email recipient" required>
+    <div class="img-container">
+        <img style="width: 100px;" src="../img/feather-ink-paper.jpg" alt="message-in-a-bottle.jpg">
+    </div>
+    <div class="compose-container">
+        <form action="submit" method="POST">
+            <div>
+                <label for=""></label>
+                <input .class="email" id="sender-email" name="emailSender" type="email" placeholder="Your email adress" required>
             </div>
-
-            <div class="input-box">
-                <textarea name="emailContent" id="text-area" required></textarea>
+            <div>
+                <label for="sender-email"></label>
+                <input .class="email" id="sender-email" name="emailSender" type="email" placeholder="Subject" required>
             </div>
-
-            <button class="button">Send</button>
+            <div>
+                <label for="sender-email"></label>
+                <textarea name="email-content"></textarea>
+            </div>
+            <button>Send</button>
         </form>
     </div>
-    <script>
-
-    </script>
 </body>
 </html>
