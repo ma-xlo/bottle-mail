@@ -12,18 +12,18 @@
         <img src="../img/compose-header.png" alt="message-in-a-bottle.jpg">
     </div>
     <div class="compose-container">
-        <form action="submit" method="POST">
+        <form action="/email-sending" method="POST">
             <div>
                 <label for=""></label>
-                <input id="email-recipient" name="emailRecipient" type="email" placeholder="Recipient address" required>
+                <input id="email-recipient" name="emailRecipient" type="email" placeholder="Recipient" required>
             </div>
             <div>
                 <label for="email-subject"></label>
-                <input type="text" id="email-content" name="email-content" placeholder="Subject" required>
+                <input type="text" id="email-subject" name="emailSubject" placeholder="Subject" required>
             </div>
             <div>
                 <label for="email-content"></label>
-                <textarea name="email-content"></textarea>
+                <textarea name="emailContent"></textarea>
             </div>
             <button>Send</button>
         </form>

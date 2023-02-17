@@ -11,7 +11,12 @@ router.get('/', async (req, res) => {
 
 router.post('/compose', async (req, res) => {
     emailSender = req.body.emailSender;
+    console.log(req.body);
     res.sendFile(path.join(__dirname, 'public', 'html', 'compose.html'));
+})
+router.post('/email-sending', async (req, res) => {
+    console.log(req.body);
+    res.sendFile(path.join(__dirname, 'public', 'html', 'success.html'));
 })
 
 router.post('/send', async (req, res) => {
