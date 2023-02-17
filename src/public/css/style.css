@@ -7,10 +7,10 @@ body{
     flex-direction:column;
 }
 
-img {
-    border: 4px double rgb(90, 90, 90);
-    border-radius: 50%;
-    border-style: double;
+.site-header img {
+    /* border: 4px double rgb(90, 90, 90); */
+    /* border-radius: 50%; */
+    /* border-style: double; */
     width: 400px;
 }
 
@@ -46,6 +46,7 @@ textarea {
     border-radius: 7px;
     resize: none;
     box-sizing: border-box;
+    outline: none;
     border: 1px solid rgb(196, 196, 196);
     -moz-box-sizing: border-box;
 }
@@ -72,6 +73,10 @@ button {
     font-size: inherit;
 }
 
+button:hover{
+    background-color: #3d98ff;
+}
+
 .sender-container{
     display: flex;
     justify-content: center;
@@ -88,7 +93,7 @@ button {
     flex-direction: column;
     gap: 10px;
     padding: 0px 10px;
-    width: 50%;
+    width: 55%;
     text-align: center;
     /* border:1px solid #0070f3; */
 }
@@ -98,4 +103,7 @@ button {
 }
 .compose-container input {
     margin-bottom: 5px;
+}
+.compose-header img{
+    width: 800px;
 }
