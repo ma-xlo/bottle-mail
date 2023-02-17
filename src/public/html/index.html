@@ -5,20 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Bottle Mail</title>
+    <title>Email in a Bottle</title>
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <img src="../img/message-in-a-bottle.jpg" alt="message-in-a-bottle.jpg">
-    <div class="container">
+    <div class="img-container">
+        <img src="../img/bottle-in-sand.jpg" alt="message-in-a-bottle.jpg">
+    </div>
+    <div class="sender-container">
         <form action="/compose" method="POST">
-            <h1>Bottle Mail</h1>
-            <h3>A lovely way to send emails</h3>
-            <input .class="email" name="emailSender" type="email" placeholder="Your email adress" required>
-            <br>
-            <button class="button">Next</button>
+            <div>
+                <h1>Email in a Bottle</h1>
+                <h3>A lovely way to send emails</h3>
+            </div>
+            <div>
+                <label for="sender-email"></label>
+                <input .class="email" id="sender-email" name="emailSender" type="email" placeholder="Your email adress" required>
+            </div>
+            <button>Next</button>
         </form>
     </div>
 
