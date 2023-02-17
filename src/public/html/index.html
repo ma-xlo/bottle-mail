@@ -11,12 +11,12 @@
     <br>
     <br>
     <br>
-    <img src="../img/message-in-a-bottle.jpg" alt="message-in-a-bottle.png">
+    <img src="../img/message-in-a-bottle.jpg" alt="message-in-a-bottle.jpg">
     <div class="container">
-        <form action="/send-bottle-email" method="post">
+        <form action="/compose" method="POST">
             <h1>Bottle Mail</h1>
             <h3>A lovely way to send emails</h3>
-            <input .class="email" type="text" placeholder="Recipient email adress">
+            <input .class="email" name="emailSender" type="email" placeholder="Your email adress" required>
             <br>
             <button class="button">Next</button>
         </form>
