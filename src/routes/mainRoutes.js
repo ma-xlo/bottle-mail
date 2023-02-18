@@ -4,7 +4,7 @@ import nodemailer from "nodemailer"
 import { __dirname } from '../helpers/helpers.js';
 
 const router = express.Router();
-let emailSender="uknown", emailSubject, emailRecipient, emailContent; 
+let senderEmail="uknown", emailSubject, emailRecipient, emailContent; 
 
 router.get('/', async (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
 
 router.post('/compose', async (req, res) => {
     try{
-        emailSender = req.body.emailSender;
+        senderEmail = req.body.senderEmail;
+        console.log(senderEmail)
         res.sendFile(path.join(__dirname, 'public', 'html', 'compose.html'));
     } catch(error) {
         res.sendFile(path.join(__dirname, 'public', 'html', 'error.html'));
@@ -26,7 +27,7 @@ router.post('/email-sending', async (req, res) => {
         emailRecipient = req.body.emailRecipient;
         emailSubject = req.body.emailSubject;
         emailContent = req.body.emailContent;
-        sendEmail(emailSender, emailSubject, emailRecipient, emailContent);
+        sendEmail(senderEmail, emailSubject, emailRecipient, emailContent);
         // res.status(200).send(`test`);
         res.status(200).sendFile(path.join(__dirname, 'public', 'html', 'success.html'));
     } catch (error) {
@@ -36,7 +37,7 @@ router.post('/email-sending', async (req, res) => {
 })
 
 
-async function sendEmail(emailSender, emailSubject, emailRecipient, emailContent){
+async function sendEmail(senderEmail, emailSubject, emailRecipient, emailContent){
     let transporter = nodemailer.createTransport({
         service: 'Gmail', // no need to set host or port etc.
         auth: {
@@ -46,27 +47,23 @@ async function sendEmail(emailSender, emailSubject, emailRecipient, emailContent
     });
 
     let info = await transporter.sendMail({
-      from: `${emailSender}`,
-      to: `macorrea-@hotmail.com`,
-    //   to: `${emailRecipient}`,
+      from: `${senderEmail}`,
+      to: `${emailRecipient}`,
       subject: `${emailSubject}`,
-      text: `${emailContent}`,
+      text: `${emailContent}\n\n${senderEmail}`,
+      //html: `<h4>${senderEmail}</h4>`
     });
 
-    transporter.sendMail(info, function(error, info){
-        if (error) {
-            console.log(error);
-            return error
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
-    
-  }
+transporter.sendMail(info, function(error, info){
+    if (error) {
+        console.log(error);
+        return error
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+});
 
-  
-  
-
+}
 
 export default router;
 
